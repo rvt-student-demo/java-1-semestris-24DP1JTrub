@@ -2,7 +2,7 @@ package rvt;
 
 import java.util.Scanner;
 
-public class addition {
+public class Addition {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ievadiet pirmo skaiti: ");
