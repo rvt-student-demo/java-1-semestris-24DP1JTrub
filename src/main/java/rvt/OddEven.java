@@ -9,7 +9,7 @@ public class OddEven {
         int i = Integer.valueOf(scanner.nextLine());
         
         if (i % 2 == 0) {
-            System.out.println("Number " + i + " is even.");
+            System.out.println("Number " + i + " is even.434");
         } else {
             System.out.println("Number " + i + " is odd.");
         }
