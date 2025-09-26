@@ -14,23 +14,11 @@ public class RepeatingRemembering {
         System.out.println("Enter numbers, -1 to stop");
 
         while (true) {
-            String input = scanner.nextLine().trim();
-            if (input.isEmpty()) {
-                System.out.println("You must enter a number!");
-                continue;
-            }
-
-            int number;
-            try {
-                number = Integer.valueOf(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Not a valid number, try again.");
-                continue;
-            }
+            int number = Integer.valueOf(scanner.nextLine());
 
             if (number == -1) {
                 System.out.println("Thx! Bye!");
-                break;  
+                break;
             }
 
             sum += number;
@@ -47,7 +35,7 @@ public class RepeatingRemembering {
             double average = 1.0 * sum / count;
             System.out.println("Sum: " + sum);
             System.out.println("Numbers: " + count);
-            System.out.printf("Average: %.2f%n", average); 
+            System.out.printf("Average: %.2f%n", average);
             System.out.println("Even: " + even_count);
             System.out.println("Odd: " + odd_count);
         }
