@@ -1,6 +1,7 @@
 package rvt;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Book {
     // Grāmatas nosaukums
@@ -46,32 +47,54 @@ public class Book {
 
 
     public static void main(String[] args) {
-        // Ievades metoode
-        Book book = new Book("Latvijas vēsture", 350, 2020);
+         // Ievades metoode
+        ArrayList<Book> books = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ievadiet grāmatas nosaukumu: ");
-        book.title = scanner.nextLine();
-        System.out.print("Ievadiet grāmatas lappaspuses: ");
-        book.pages = scanner.nextInt();
-        System.out.print("Ievadiet grāmatas izdošanas gadu: ");
-        book.year = scanner.nextInt();
-        scanner.nextLine(); // Patērē jauno rindu
-        System.out.println("");
+        String title;
+        int pages;
+        int year;
+        while (true) {
+            System.out.print("Ievadiet grāmatas nosaukumu: ");
+            title = scanner.nextLine();
+            if (title.isEmpty()) {
+                break;
+            }
+            
+            System.out.print("Ievadiet grāmatas lappaspuses: ");
+            pages = Integer.parseInt(scanner.nextLine());
+            System.out.print("Ievadiet grāmatas izdošanas gadu: ");
+            year = Integer.parseInt(scanner.nextLine());
 
+
+            Book book = new Book(title, pages, year);
+            books.add(book);
+            System.out.println();
+
+        continue;
+        }
 
         // Izveidojam jaunu grāmatu objektu
         System.out.println("Kādu informāciju par grāmatu vēlaties izvadīt? ");
         String info = scanner.nextLine();
-        if (info.equals("visu")) {
-            System.out.println("gramata: " + book.getTitle() + ", pages: " + book.getPages() + ", year: " + book.getYear());
-        } else if (info.equals("nosaukumu")) {
-            System.out.println("Grāmatas nosaukums: " + book.getTitle());
-        } else if (info.equals("lappaspuses")) {
-            System.out.println("Grāmatas lappaspuses: " + book.getPages());
-        } else if (info.equals("gadu")) {
-            System.out.println("Grāmatas izdošanas gads: " + book.getYear());
-        }
-         scanner.close();
+        if (info.equalsIgnoreCase("visu")) {
+            for (Book b : books) {
+            System.out.println("Grāmata: " + b.getTitle() + ", pages: " + b.getPages() + ", year: " + b.getYear());
+            }
+            } else if (info.equalsIgnoreCase("nosaukumu")) {
+            for (Book b : books) {
+            System.out.println("Grāmatas nosaukums: " + b.getTitle());
+            }
+            } else if (info.equalsIgnoreCase("lappaspuses")) {
+            for (Book b : books) {
+            System.out.println("Grāmatas lappaspuses: " + b.getPages());
+            }
+            } else if (info.equalsIgnoreCase("gadu")) {
+            for (Book b : books) {
+            System.out.println("Grāmatas izdošanas gads: " + b.getYear());
+            }
+            }
+
+            scanner.close();
     }
    
 }
