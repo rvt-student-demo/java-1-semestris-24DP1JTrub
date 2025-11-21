@@ -35,6 +35,7 @@ public class Book {
         return year;
     }
 
+
     
 
     // Grāmatas apraksts
@@ -54,19 +55,20 @@ public class Book {
         book.pages = scanner.nextInt();
         System.out.print("Ievadiet grāmatas izdošanas gadu: ");
         book.year = scanner.nextInt();
-
+        scanner.nextLine(); // Patērē jauno rindu
+        System.out.println("");
 
 
         // Izveidojam jaunu grāmatu objektu
         System.out.println("Kādu informāciju par grāmatu vēlaties izvadīt? ");
         String info = scanner.nextLine();
-        if (info.equals("Visu")) {
-            System.out.println("Grāmata: " + book.getTitle() + ", pages: " + book.getPages() + ", year: " + book.getYear());
-        } else if (info.equals("Nosaukumu")) {
+        if (info.equals("visu")) {
+            System.out.println("gramata: " + book.getTitle() + ", pages: " + book.getPages() + ", year: " + book.getYear());
+        } else if (info.equals("nosaukumu")) {
             System.out.println("Grāmatas nosaukums: " + book.getTitle());
-        } else if (info.equals("Lappaspuses")) {
+        } else if (info.equals("lappaspuses")) {
             System.out.println("Grāmatas lappaspuses: " + book.getPages());
-        } else if (info.equals("Gadu")) {
+        } else if (info.equals("gadu")) {
             System.out.println("Grāmatas izdošanas gads: " + book.getYear());
         }
          scanner.close();
